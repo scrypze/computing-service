@@ -83,7 +83,7 @@ def send_result_to_main_service(selected_stars_id, star_id, habitable_zone, prob
     
     try:
         logger.info(f"Отправляем результат в основной сервис: {url}")
-        response = requests.post(url, json=payload, headers=headers, timeout=30)
+        response = requests.put(url, json=payload, headers=headers, timeout=30)
         response.raise_for_status()
         logger.info(f"Результат успешно отправлен. Статус: {response.status_code}")
         return True
